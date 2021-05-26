@@ -25,11 +25,10 @@ namespace WpfApp1
             InitializeComponent();
         }
 
-        private void Button_Click(object sender, RoutedEventArgs e)
+
+        private void Board_Button(object sender, RoutedEventArgs e)
         {
-            double c = Convert.ToInt32(cent.Text) * 1.8 + 32;
-            cent.Text = "";
-            far.Text = Convert.ToString(c);
+            Pos03.Content = "X";
         }
     }
 }
