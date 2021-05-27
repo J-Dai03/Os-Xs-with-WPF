@@ -31,13 +31,12 @@ namespace WpfApp1
         public void Play()
         {
             GameState = 0;
-            Console.WriteLine("Begin game");
 
             while (GameState == 0)
             {
                 //Player turn
                 Console.WriteLine("Turn: Player " + Convert.ToString(CurrentPlayer));
-                MoveValidity = b.addCounter(CurrentPlayer, players[CurrentPlayer - 1].getMove());
+                MoveValidity = b.addCounter(CurrentPlayer, players[CurrentPlayer - 1].GetMove());
                 while (MoveValidity == false)
                 {
                     Console.WriteLine("Invalid move. Please try again");
@@ -57,11 +56,9 @@ namespace WpfApp1
             {
                 case 1:
                     Console.WriteLine("Player 1 wins");
-                    players[0].addWin();
                     break;
                 case 2:
                     Console.WriteLine("Player 2 wins");
-                    players[1].addWin();
                     break;
                 case 3:
                     Console.WriteLine("Draw");
@@ -71,14 +68,10 @@ namespace WpfApp1
                     Console.WriteLine("GameState value: " + Convert.ToString(GameState));
                     break;
             }
-
-            ShowWins();
         }
-        public void ShowWins()
+        public bool addCounter(int x, int y)
         {
-            Console.WriteLine("Current tally:");
-            Console.WriteLine("Player 1: " + Convert.ToString(players[0].getWins()));
-            Console.WriteLine("Player 2: " + Convert.ToString(players[1].getWins()));
+            return b.addCounter(CurrentPlayer, x, y);
         }
     }
 }
