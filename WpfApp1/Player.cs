@@ -13,6 +13,6 @@ namespace WpfApp1
         {
             this.b = b;
         }
-        public abstract int GetMove();
+        //public abstract int GetMove();
     }
 }

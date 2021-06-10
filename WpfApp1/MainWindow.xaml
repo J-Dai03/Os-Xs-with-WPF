@@ -22,7 +22,8 @@
 
         <TextBlock x:Name="Display" Grid.Row="0" Grid.Column="1" Text="[-----]" HorizontalAlignment="Center" VerticalAlignment="Center" TextWrapping="Wrap" FontSize="20" FontFamily="Verdana" FontWeight="Bold"></TextBlock>
         
-        <Button x:Name="P1" Grid.Row="1" Grid.Column="0" Click="Button_Click_0"></Button>
+        <Button x:Name="P1" Grid.Row="1" Grid.Column="0" Click="Button_Click_0">
+            <TextBlock> x:Name="P1Text" </TextBlock></Button>
         <Button x:Name="P2" Grid.Row="1" Grid.Column="1" Click="Button_Click_1"></Button>
         <Button x:Name="P3" Grid.Row="1" Grid.Column="2" Click="Button_Click_2"></Button>
         <Button x:Name="P4" Grid.Row="2" Grid.Column="0" Click="Button_Click_3"></Button>

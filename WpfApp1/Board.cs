@@ -32,18 +32,18 @@ namespace WpfApp1
             }
         }
 
-        public bool addCounter(int playerSymbol, int xPos, int yPos)
+        public bool addCounter(int playerID, int xPos, int yPos)
         {
             bool result = false;
             if (pattern[xPos, yPos] == 0)
             {
-                pattern[xPos, yPos] = playerSymbol;
+                pattern[xPos, yPos] = playerID;
                 result = true;
             }
-            else if ((pattern[xPos, yPos] > 2)|| (pattern[xPos, yPos] < 0))
+            else if ((pattern[xPos, yPos] > 2) || (pattern[xPos, yPos] < 0))
             {
                 //Value out of bounds
-                Console.WriteLine("Rep value out of bounds");
+                Console.WriteLine("Error report: position value out of bounds");
                 result = false;
             }
             return result;

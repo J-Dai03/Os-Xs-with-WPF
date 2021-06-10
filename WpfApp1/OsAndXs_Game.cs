@@ -11,7 +11,7 @@ namespace WpfApp1
         private int CurrentPlayer;
         private int GameState;
         private bool MoveValidity;
-        private Board b;
+        public Board b;
         private Player[] players;
 
         //Game state:
@@ -28,50 +28,19 @@ namespace WpfApp1
             GameState = 0;
         }
 
-        public void Play()
+        public void ButtonPress(int x, int y)
         {
-            GameState = 0;
-
-            while (GameState == 0)
+            //If successfully added
+            if (b.addCounter(CurrentPlayer, x, y))
             {
-                //Player turn
-                Console.WriteLine("Turn: Player " + Convert.ToString(CurrentPlayer));
-                MoveValidity = b.addCounter(CurrentPlayer, players[CurrentPlayer - 1].GetMove());
-                while (MoveValidity == false)
-                {
-                    Console.WriteLine("Invalid move. Please try again");
-                    int xCoord = Convert.ToInt32(Console.ReadLine());
-                    int yCoord = Convert.ToInt32(Console.ReadLine());
-                    MoveValidity = b.addCounter(CurrentPlayer, xCoord, yCoord);
-                }
-                //Next player
-                CurrentPlayer = (CurrentPlayer) % 2;
-                CurrentPlayer++;
-                GameState = b.checkwin(players[0].getSymbol(), players[1].getSymbol());
+                CurrentPlayer = (CurrentPlayer % 2) + 1;
             }
-            Console.WriteLine("Game over");
-
-            //Winner announcement
-            switch (GameState)
-            {
-                case 1:
-                    Console.WriteLine("Player 1 wins");
-                    break;
-                case 2:
-                    Console.WriteLine("Player 2 wins");
-                    break;
-                case 3:
-                    Console.WriteLine("Draw");
-                    break;
-                default:
-                    Console.WriteLine("Error: Unknown GameState");
-                    Console.WriteLine("GameState value: " + Convert.ToString(GameState));
-                    break;
-            }
+            GameState = b.checkwin();
         }
-        public bool addCounter(int x, int y)
+        public int GetGameState()
         {
-            return b.addCounter(CurrentPlayer, x, y);
+            GameState = b.checkwin();
+            return GameState;
         }
     }
 }
