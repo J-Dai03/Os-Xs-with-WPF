@@ -42,5 +42,23 @@ namespace WpfApp1
             GameState = b.checkwin();
             return GameState;
         }
+        public char GetCharFromButton(int buttonNum)
+        {
+            char charToReturn = ' ';
+            int posVal = b.GetPos(Convert.ToInt32(Math.Floor(Convert.ToDouble(buttonNum/3))), buttonNum % 3);
+            switch (posVal)
+            {
+                case 1:
+                    charToReturn = 'O';
+                    break;
+                case 2:
+                    charToReturn = 'X';
+                    break;
+                default:
+                    charToReturn = ' ';
+                    break;
+            }
+            return charToReturn;
+        }
     }
 }
