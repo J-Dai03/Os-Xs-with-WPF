@@ -27,47 +27,46 @@ namespace WpfApp1
             Game = new OsAndXs_Game();
         }
 
-        private void BoardButtonClick(int num)
+        private void BoardButtonClick(int x, int y)
         {
-            Display.Text = "AAA";
-            Game.ButtonPress(Convert.ToInt32(Math.Floor(Convert.ToDouble(num / 3))), num % 3);
+            Game.ButtonPress(x, y);
             updateDisplay();
         }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
-            BoardButtonClick(1);
+            BoardButtonClick(0,0);
         }
         private void Button_Click_2(object sender, RoutedEventArgs e)
         {
-            BoardButtonClick(2);
+            BoardButtonClick(0,1);
         }
         private void Button_Click_3(object sender, RoutedEventArgs e)
         {
-            BoardButtonClick(3);
+            BoardButtonClick(0,2);
         }
         private void Button_Click_4(object sender, RoutedEventArgs e)
         {
-            BoardButtonClick(4);
+            BoardButtonClick(1,0);
         }
         private void Button_Click_5(object sender, RoutedEventArgs e)
         {
-            BoardButtonClick(5);
+            BoardButtonClick(1,1);
         }
         private void Button_Click_6(object sender, RoutedEventArgs e)
         {
-            BoardButtonClick(6);
+            BoardButtonClick(1,2);
         }
         private void Button_Click_7(object sender, RoutedEventArgs e)
         {
-            BoardButtonClick(7);
+            BoardButtonClick(2,0);
         }
         private void Button_Click_8(object sender, RoutedEventArgs e)
         {
-            BoardButtonClick(8);
+            BoardButtonClick(2,1);
         }
         private void Button_Click_9(object sender, RoutedEventArgs e)
         {
-            BoardButtonClick(9);
+            BoardButtonClick(2,2);
         }
         private void Reset_Click(object sender, RoutedEventArgs e)
         {

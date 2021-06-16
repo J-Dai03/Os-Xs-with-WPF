@@ -33,6 +33,7 @@ namespace WpfApp1
             //If successfully added
             if (b.addCounter(CurrentPlayer, x, y))
             {
+                //Next player
                 CurrentPlayer = (CurrentPlayer % 2) + 1;
             }
             GameState = b.checkwin();
