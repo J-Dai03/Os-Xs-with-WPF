@@ -29,8 +29,7 @@ namespace WpfApp1
 
         private void BoardButtonClick(int num)
         {
-            int[] CoOrd = MyMaths.NumToCoOrd(num);
-            Game.ButtonPress(CoOrd[0], CoOrd[1]);
+            Game.ButtonPress(num);
             updateDisplay();
         }
         private void Button_Click_1(object sender, RoutedEventArgs e)
@@ -75,7 +74,8 @@ namespace WpfApp1
         }
         private void Start_Click(object sender, RoutedEventArgs e)
         {
-            Display.Text = "Start";
+            Game.b.clearBoard();
+            updateDisplay();
         }
         private void Save_Click(object sender, RoutedEventArgs e)
         {
@@ -85,6 +85,7 @@ namespace WpfApp1
         public void updateDisplay()
         {
             int GameState = Game.GetGameState();
+            Display.Text = "Current player: " + Convert.ToString(Game.GetCurrentPlayer());
             if (GameState != 0)
             {
                 switch (GameState)

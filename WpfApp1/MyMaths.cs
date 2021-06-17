@@ -12,15 +12,15 @@ namespace WpfApp1
         {
             int val;
             val = 3 * x;
-            val = val + y;
+            val = val + y + 1;
             return val;
         }
 
         static public int[] NumToCoOrd(int num)
         {
             int[] CoOrd = new int[2];
-            CoOrd[1] = num % 3;
-            CoOrd[0] = (num - CoOrd[0])/3;
+            CoOrd[1] = (num-1) % 3;
+            CoOrd[0] = (num - (num % 3)) /3;
             return CoOrd;
         }
     }

@@ -10,9 +10,7 @@ namespace WpfApp1
     {
         private int CurrentPlayer;
         private int GameState;
-        private bool MoveValidity;
         public Board b;
-        private Player[] players;
 
         //Game state:
         // 0 - Draw
@@ -22,16 +20,16 @@ namespace WpfApp1
 
         public OsAndXs_Game()
         {
-            Board b = new Board();
-            Player[] players = new Player[2];
+            b = new Board();
             CurrentPlayer = 1;
             GameState = 3;
         }
 
-        public void ButtonPress(int x, int y)
+        public void ButtonPress(int num)
         {
+            int[] CoOrd = MyMaths.NumToCoOrd(num);
             //If successfully added
-            if (b.addCounter(CurrentPlayer, x, y))
+            if (b.addCounter(CurrentPlayer, CoOrd[0], CoOrd[1]))
             {
                 //Switch player
                 CurrentPlayer = (CurrentPlayer % 2) + 1;
@@ -61,6 +59,10 @@ namespace WpfApp1
                     break;
             }
             return charToReturn;
+        }
+        public int GetCurrentPlayer()
+        {
+            return CurrentPlayer;
         }
     }
 }
