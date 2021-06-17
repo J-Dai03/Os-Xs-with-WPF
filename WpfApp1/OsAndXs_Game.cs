@@ -25,7 +25,7 @@ namespace WpfApp1
             Board b = new Board();
             Player[] players = new Player[2];
             CurrentPlayer = 1;
-            GameState = 0;
+            GameState = 3;
         }
 
         public void ButtonPress(int x, int y)
@@ -33,7 +33,7 @@ namespace WpfApp1
             //If successfully added
             if (b.addCounter(CurrentPlayer, x, y))
             {
-                //Next player
+                //Switch player
                 CurrentPlayer = (CurrentPlayer % 2) + 1;
             }
             GameState = b.checkwin();
@@ -43,10 +43,11 @@ namespace WpfApp1
             GameState = b.checkwin();
             return GameState;
         }
-        public char GetCharFromButton(int buttonNum)
+        public char GetCharFromButton(int num)
         {
             char charToReturn = ' ';
-            int posVal = b.GetPos(Convert.ToInt32(Math.Floor(Convert.ToDouble(buttonNum/3))), buttonNum % 3);
+            int[] CoOrd = MyMaths.NumToCoOrd(num);
+            int posVal = b.GetPos(CoOrd[0], CoOrd[1]);
             switch (posVal)
             {
                 case 1:
