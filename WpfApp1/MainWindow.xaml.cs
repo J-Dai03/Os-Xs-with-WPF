@@ -86,18 +86,19 @@ namespace WpfApp1
         {
             int GameState = Game.GetGameState();
             Display.Text = "Current player: " + Convert.ToString(Game.GetCurrentPlayer());
-            if (GameState != 0)
+            //If the game is no longer in progress
+            if (GameState != 3)
             {
                 switch (GameState)
                 {
+                    case 0:
+                        Display.Text = "Draw";
+                        break;
                     case 1:
                         Display.Text = "Player 1 wins";
                         break;
                     case 2:
                         Display.Text = "Player 2 wins";
-                        break;
-                    case 3:
-                        Display.Text = "Draw";
                         break;
                     default:
                         Display.Text = "Error: Unknown GameState. GameState value: " + Convert.ToString(GameState);

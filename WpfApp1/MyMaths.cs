@@ -18,9 +18,15 @@ namespace WpfApp1
 
         static public int[] NumToCoOrd(int num)
         {
+            /*
+             *  Num = 3*x + y + 1
+                Y = (Num – 1) % 3
+                X = Math.Floor((Num – 1) / 3)
+                X = (Num – Y – 1)/3
+             */
             int[] CoOrd = new int[2];
             CoOrd[1] = (num-1) % 3;
-            CoOrd[0] = (num - (num % 3)) /3;
+            CoOrd[0] = (num - CoOrd[1] - 1) /3;
             return CoOrd;
         }
     }
