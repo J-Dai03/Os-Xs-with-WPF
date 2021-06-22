@@ -31,11 +31,7 @@ namespace WpfApp1
 
         public void ButtonPress(int num)
         {
-            if (GameState != 3)
-            {
-                //Do nothing
-            }
-            else
+            if (GameState == 3)
             {
                 int[] CoOrd = MyMaths.NumToCoOrd(num);
                 //If successfully added

@@ -29,8 +29,11 @@ namespace WpfApp1
 
         private void BoardButtonClick(int num)
         {
-            Game.ButtonPress(num);
-            updateDisplay();
+            if (Game.GetGameState() == 3)
+            {
+                Game.ButtonPress(num);
+                updateDisplay();
+            }
         }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
