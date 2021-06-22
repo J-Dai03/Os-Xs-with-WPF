@@ -68,42 +68,42 @@ namespace WpfApp1
         {
             BoardButtonClick(9);
         }
-        private void Reset_Click(object sender, RoutedEventArgs e)
+        private void RestartStart_Click(object sender, RoutedEventArgs e)
         {
-            Display.Text = "Reset";
-        }
-        private void Start_Click(object sender, RoutedEventArgs e)
-        {
-            Game.b.clearBoard();
+            Game.clearBoard();
+            Game.Start();
             updateDisplay();
         }
         private void Save_Click(object sender, RoutedEventArgs e)
         {
             Display.Text = "Save";
         }
+        private void Useless_Click(object sender, RoutedEventArgs e)
+        {
+            Display.Text = Game.getDataToDisplay();
+        }
 
         public void updateDisplay()
         {
             int GameState = Game.GetGameState();
-            Display.Text = "Current player: " + Convert.ToString(Game.GetCurrentPlayer());
-            //If the game is no longer in progress
-            if (GameState != 3)
+            switch (GameState)
             {
-                switch (GameState)
-                {
-                    case 0:
-                        Display.Text = "Draw";
-                        break;
-                    case 1:
-                        Display.Text = "Player 1 wins";
-                        break;
-                    case 2:
-                        Display.Text = "Player 2 wins";
-                        break;
-                    default:
-                        Display.Text = "Error: Unknown GameState. GameState value: " + Convert.ToString(GameState);
-                        break;
-                }
+                case 0:
+                    Display.Text = "Draw";
+                    break;
+                case 1:
+                case 2:
+                    Display.Text = "Player " + Convert.ToString(GameState) + " (" + Game.GetPlayerSymbol(GameState) + ")  wins";
+                    break;
+                case 3:
+                    Display.Text = "Current player: " + Game.GetCurrentPlayerSymbol();
+                    break;
+                case 4:
+                    Display.Text = "Press Start";
+                    break;
+                default:
+                    Display.Text = "Error: Unknown GameState. GameState value: " + Convert.ToString(GameState);
+                    break;
             }
             P1.Content = Game.GetCharFromButton(1);
             P2.Content = Game.GetCharFromButton(2);
