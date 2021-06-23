@@ -31,9 +31,9 @@
         <Button x:Name="P7" Grid.Row="3" Grid.Column="0" Click="Button_Click_7"></Button>
         <Button x:Name="P8" Grid.Row="3" Grid.Column="1" Click="Button_Click_8"></Button>
         <Button x:Name="P9" Grid.Row="3" Grid.Column="2" Click="Button_Click_9"></Button>
-        <Button Grid.Row="4" Grid.Column="0" Click="RestartStart_Click">Start/Restart</Button>
+        <Button Grid.Row="4" Grid.Column="0" Click="Restart_Click">Start/Restart</Button>
         <Button Grid.Row="4" Grid.Column="1" Click="Useless_Click">Data (click to cycle)</Button>
-        <Button Grid.Row="4" Grid.Column="2" Click="Save_Click">Save</Button>
+        <Button Grid.Row="4" Grid.Column="2" Click="RefreshDisplay_Click">Save</Button>
 
 
     </Grid>

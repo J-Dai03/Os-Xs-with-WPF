@@ -29,12 +29,10 @@ namespace WpfApp1
         }
 
         private void BoardButtonClick(int num)
+
         {
-            if (Game.GetGameState() == 3)
-            {
-                Game.ButtonPress(num);
-                updateDisplay();
-            }
+            Game.ButtonPress(num);
+            updateDisplay();
         }
         private void Button_Click_1(object sender, RoutedEventArgs e)
         {
@@ -72,15 +70,15 @@ namespace WpfApp1
         {
             BoardButtonClick(9);
         }
-        private void RestartStart_Click(object sender, RoutedEventArgs e)
+        private void Restart_Click(object sender, RoutedEventArgs e)
         {
             Game.clearBoard();
             Game.Start();
             updateDisplay();
         }
-        private void Save_Click(object sender, RoutedEventArgs e)
+        private void RefreshDisplay_Click(object sender, RoutedEventArgs e)
         {
-            Display.Text = "Save";
+            updateDisplay();
         }
         private void Useless_Click(object sender, RoutedEventArgs e)
         {
@@ -101,9 +99,6 @@ namespace WpfApp1
                     break;
                 case 3:
                     Display.Text = "Current player: " + Game.GetCurrentPlayerSymbol();
-                    break;
-                case 4:
-                    Display.Text = "Press Start";
                     break;
                 default:
                     Display.Text = "Error: Unknown GameState. GameState value: " + Convert.ToString(GameState);

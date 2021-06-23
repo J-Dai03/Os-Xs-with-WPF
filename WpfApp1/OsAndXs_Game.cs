@@ -25,17 +25,13 @@ namespace WpfApp1
         {
             b = new Board();
             CurrentPlayer = 1;
-            GameState = 4;
+            GameState = 3;
             DataToDisplay = 1;
         }
 
         public void ButtonPress(int num)
         {
-            if (GameState == 4)
-            {
-                //Do nothing
-            }
-            else if (GameState == 3)
+            if (GameState == 3)
             {
                 int[] CoOrd = MyMaths.NumToCoOrd(num);
                 //If successfully added
@@ -83,6 +79,7 @@ namespace WpfApp1
         {
             CurrentPlayer = 1;
             GameState = 3;
+            b.clearBoard();
         }
         public void clearBoard()
         {
