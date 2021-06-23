@@ -31,7 +31,11 @@ namespace WpfApp1
 
         public void ButtonPress(int num)
         {
-            if (GameState == 3)
+            if (GameState == 4)
+            {
+                //Do nothing
+            }
+            else if (GameState == 3)
             {
                 int[] CoOrd = MyMaths.NumToCoOrd(num);
                 //If successfully added
@@ -94,7 +98,7 @@ namespace WpfApp1
                     TextToDisplay = "Game State: " + Convert.ToString(GameState);
                     break;
                 case 2:
-                    TextToDisplay = "Current player: " + CurrentPlayer;
+                    TextToDisplay = "Current player: " + CurrentPlayer + " (" + GetPlayerSymbol(CurrentPlayer) + ")";
                     break;
                 default:
                     TextToDisplay = "WTF";
