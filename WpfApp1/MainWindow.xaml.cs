@@ -25,6 +25,7 @@ namespace WpfApp1
         {
             InitializeComponent();
             Game = new OsAndXs_Game();
+            DataContext = Game;
             updateDisplay();
         }
 

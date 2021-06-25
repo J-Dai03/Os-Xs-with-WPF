@@ -72,6 +72,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="MyMaths.cs" />
+    <Compile Include="Notifier.cs" />
     <Compile Include="OsAndXs_Game.cs" />
     <Compile Include="Player.cs" />
     <Compile Include="Properties\AssemblyInfo.cs">
